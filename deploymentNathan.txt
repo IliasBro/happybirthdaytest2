@@ -1,0 +1,11 @@
+az group create --name nathan --location switzerlandnorth
+
+
+az appservice plan create --name nathan --resource-group nathan --sku F1 --is-linux
+
+az webapp create --resource-group nathan --plan nathan --name nathan5400 --runtime "NODE|18-lts"
+
+zip -r nathan.zip .
+
+az webapp deployment source config-zip --resource-group nathan --name nathan5400 --src nathan.zip
+

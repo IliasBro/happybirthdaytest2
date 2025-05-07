@@ -1,19 +1,18 @@
 // trigger to play music in the background with sweetalert
 window.addEventListener('load', () => {
     Swal.fire({
-        title: 'Do you want to play music in the background?',
-        icon: 'warning',
+        title: 'Click to start',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No',
+        confirmButtonText: 'lets go',
+        cancelButtonText: 'Kei bock, bin dumm',
     }).then((result) => {
         if (result.isConfirmed) {
             document.querySelector('.song').play();
             animationTimeline();
         } else {
-            animationTimeline();
+            return;
         }
     });
 });
@@ -57,10 +56,6 @@ const animationTimeline = () => {
         opacity: 0,
         y: 10
     })
-    .from(".two", 0.4, {
-        opacity: 0,
-        y: 10
-    })
     .to(".one",
         0.7,
         {
@@ -68,25 +63,8 @@ const animationTimeline = () => {
             y: 10
         },
     "+=3.5")
-    .to(".two",
-        0.7,
-        {
-            opacity: 0,
-            y: 10
-        },
-    "-=1")
-    .from(".three", 0.7, {
-        opacity: 0,
-        y: 10
-    })
-    .to(".three",
-        0.7,
-        {
-            opacity: 0,
-            y: 10
-        },
-    "+=3")
-    .from(".four", 0.7, {
+
+    .from(".four", 0.3, {
         scale: 0.2,
         opacity: 0,
     })
@@ -96,7 +74,7 @@ const animationTimeline = () => {
     })
     .staggerTo(
         ".hbd-chatbox span",
-        1.5, {
+        0.5, {
             visibility: "visible",
         },
         0.05
@@ -104,7 +82,7 @@ const animationTimeline = () => {
     .to(".fake-btn", 0.1, {
         backgroundColor: "rgb(127, 206, 248)",
     },
-    "+=4")
+    "+=1")
     .to(
         ".four",
         0.5, {
@@ -127,34 +105,6 @@ const animationTimeline = () => {
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
     .from(".idea-4", 0.7, ideaTextTrans)
     .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
-    .from(
-        ".idea-5",
-        0.7, {
-            rotationX: 15,
-            rotationZ: -10,
-            skewY: "-5deg",
-            y: 50,
-            z: 10,
-            opacity: 0,
-        },
-        "+=1.5"
-    )
-    .to(
-        ".idea-5 span",
-        0.7, {
-            rotation: 90,
-            x: 8,
-        },
-        "+=1.4"
-    )
-    .to(
-        ".idea-5",
-        0.7, {
-            scale: 0.2,
-            opacity: 0,
-        },
-        "+=2"
-    )
     .staggerFrom(
         ".idea-6 span",
         0.8, {
@@ -241,12 +191,12 @@ const animationTimeline = () => {
     )
     .staggerTo(
         ".eight svg",
-        1.5, {
+        0.75, {
             visibility: "visible",
             opacity: 0,
             scale: 80,
-            repeat: 3,
-            repeatDelay: 1.4,
+            repeat: 2,
+            repeatDelay: 1,
         },
         0.3
     )
@@ -255,18 +205,14 @@ const animationTimeline = () => {
         y: 30,
         zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-        ".last-smile",
-        0.5, {
-            rotation: 90,
-        },
-        "+=1"
-    );
 
-    // Restart Animation on click
-    const replyBtn = document.getElementById("replay");
-    replyBtn.addEventListener("click", () => {
-        tl.restart();
-    });
+
+    .to(".nine", 0.5, { visibility: "visible", opacity: 1 }, "+=1")  
+    .to(".nine", 0.5, { opacity: 0, visibility: "hidden" }, "+=3") 
+
+    .to(".ten", 1.5, { visibility: "visible", opacity: 1 }, "+=1")  
+    .to(".ten", 1.5, { opacity: 0, visibility: "hidden" }, "+=3")  
+
+    .to(".eleven", { visibility: "visible", opacity: 1,}, "+=1");
+
 }

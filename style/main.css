@@ -59,6 +59,11 @@ body {
   visibility: hidden;
 }
 
+.nine, .ten, .ten1, .eleven {
+  visibility: hidden; /* oder opacity: 0; */
+}
+
+
 .text-box .fake-btn {
   background-color: rgb(21, 161, 237);
   border-radius: 3px;
@@ -224,6 +229,17 @@ body {
   cursor: pointer;
   z-index: 3;
 }
+
+.ten1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-picture {
+  width: 45%;
+  height: auto;
+}
+
 
 /* Media Queries */
 @media screen and (max-height: 1000px) {
